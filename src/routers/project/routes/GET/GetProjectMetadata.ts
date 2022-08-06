@@ -6,7 +6,7 @@ function GetProjectMetadata(req: Request, res: Response, project: project) {
     project.files[project.files.indexOf(file)] =
       process.env["PROTOCOL"] +
       "://" +
-      req.headers["host"] +
+      process.env["IP"] +
       "/document/" +
       project.files[project.files.indexOf(file)] +
       "/download";
@@ -16,7 +16,7 @@ function GetProjectMetadata(req: Request, res: Response, project: project) {
     project.resources[project.resources.indexOf(resource)] =
       process.env["PROTOCOL"] +
       "://" +
-      req.headers["host"] +
+      process.env["IP"] +
       "/resource/" +
       project.resources[project.resources.indexOf(resource)] +
       "/metadata";

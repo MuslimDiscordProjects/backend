@@ -5,7 +5,7 @@ function GetResourceMetadata(req: Request, res: Response, resource: resource) {
   resource["file"] =
     process.env["PROTOCOL"] +
     "://" +
-    req.headers["host"] +
+    process.env["IP"] +
     "/document/" +
     resource["file"] +
     "/download";

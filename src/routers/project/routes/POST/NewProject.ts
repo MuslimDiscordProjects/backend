@@ -4,10 +4,12 @@ import prisma from "../../../../global/prisma.instance";
 import ErrorLog from "../../../../utils/errors/ErrorLog";
 
 function NewProject(req: Request, res: Response) {
-  const { name, description, sources, links, resources, files } = req.body;
+  const { name, description, image, sources, links, resources, files } =
+    req.body;
   if (
     name == undefined ||
     description == undefined ||
+    image == undefined ||
     sources == undefined ||
     links == undefined ||
     resources == undefined ||
@@ -20,6 +22,7 @@ function NewProject(req: Request, res: Response) {
         data: {
           name: name,
           description: description,
+          image: image,
           sources: sources,
           links: links,
           resources: resources,
