@@ -12,6 +12,15 @@ function GetProjectMetadata(req: Request, res: Response, project: project) {
       "/download";
   });
 
+  if (project.image != "none")
+    project.image =
+      process.env["PROTOCOL"] +
+      "://" +
+      process.env["IP"] +
+      "/document/" +
+      project.image +
+      "/download";
+
   project.resources.forEach((resource) => {
     project.resources[project.resources.indexOf(resource)] =
       process.env["PROTOCOL"] +
