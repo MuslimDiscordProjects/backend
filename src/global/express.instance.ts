@@ -9,8 +9,8 @@ const express = e();
 express
   .use(cors)
   .use(JWTValidator)
-  .use(router)
   .use(e.json())
+  .use(router)
   .use(morgan("common"));
 
 export default express;

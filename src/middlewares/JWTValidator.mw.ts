@@ -7,7 +7,6 @@ const env = config();
 
 function JWTValidator(req: Request, res: Response, n: NextFunction) {
   if (["POST", "DELETE"].includes(req.method)) {
-    //@ts-ignore
     const token = req.headers["authorization"]?.split(" ")[1] || null;
     if (token == null) {
       res.status(401).send("Unauthorized");
@@ -21,7 +20,6 @@ function JWTValidator(req: Request, res: Response, n: NextFunction) {
         n();
         return;
       } catch (Ex) {
-        console.log(Ex);
         res.status(401).send("Invalid Authorization Token");
         return;
       }

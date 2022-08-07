@@ -3,6 +3,7 @@ import prisma from "../../../../global/prisma.instance";
 import ErrorLog from "../../../../utils/errors/ErrorLog";
 
 function NewResource(req: Request, res: Response) {
+  console.log(req.body);
   const { name, description, file } = req.body;
   if (name == undefined || description == undefined || file == undefined) {
     res.status(400).send();
