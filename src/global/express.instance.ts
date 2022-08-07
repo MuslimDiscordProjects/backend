@@ -7,11 +7,11 @@ import { cors } from "../middlewares/cors.mw";
 
 const express = e();
 express
+  .use(cors)
   .use(JWTValidator)
   .use(e.json())
-  .use(router)
-  .use(cors)
   .use(morgan("common"))
-  .use(multer().any);
+  .use(multer().any)
+  .use(router);
 
 export default express;
