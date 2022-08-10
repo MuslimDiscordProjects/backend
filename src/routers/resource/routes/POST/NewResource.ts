@@ -4,8 +4,13 @@ import ErrorLog from "../../../../utils/errors/ErrorLog";
 
 function NewResource(req: Request, res: Response) {
   console.log(req.body);
-  const { name, description, file } = req.body;
-  if (name == undefined || description == undefined || file == undefined) {
+  const { name, description, category, file } = req.body;
+  if (
+    name == undefined ||
+    description == undefined ||
+    category == undefined ||
+    file == undefined
+  ) {
     res.status(400).send();
   } else {
     prisma.resource
@@ -13,6 +18,7 @@ function NewResource(req: Request, res: Response) {
         data: {
           name: name,
           description: description,
+          category: category,
           file: file,
         },
       })

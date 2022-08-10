@@ -14,7 +14,7 @@ function GetManyResources(req: Request, res: Response) {
         result[result.indexOf(resource)].file =
           process.env["PROTOCOL"] +
           "://" +
-          req.headers["host"] +
+          process.env["IP"] +
           "/document/" +
           resource["file"] +
           "/download";
